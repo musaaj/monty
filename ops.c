@@ -52,3 +52,18 @@ void _pint(stack_t **head, unsigned int linenumber)
 	}
 	printf("%d\n", (*head)->n);
 }
+
+/**
+ * _pop - remove the top element in stack
+ * @head: address of head of the stack
+ * @linenumber: line number of the opcode
+*/
+void _pop(stack_t **head, unsigned int linenumber)
+{
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", linenumber);
+		exit(EXIT_FAILURE);
+	}
+	delete_stack(head, 0);
+}

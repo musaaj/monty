@@ -15,7 +15,7 @@ void interprater(char *filename)
 	fp = fopen(filename, "r");
 	if (!fp)
 	{
-		fprintf(stderr, "Error: cant't open file %s\n", filename);
+		fprintf(stderr, "Error: Cant't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	line = freadln(fp);
@@ -40,7 +40,7 @@ void interprate(char *line, stack_t **stack, unsigned int linenumber)
 {
 	char *optcode;
 
-	optcode = strtok(line, " \t\n");
+	optcode = strtok(line, " \t\n\r");
 	if (optcode)
 	{
 		_execute(optcode, stack, linenumber);
@@ -79,6 +79,7 @@ void _init_(void)
 	set_ins("push", &_push, idx++);
 	set_ins("pall", &_pall, idx++);
 	set_ins("pint", &_pint, idx++);
+	set_ins("pop", &_pop, idx++);
 	op[idx] = NULL;
 }
 
