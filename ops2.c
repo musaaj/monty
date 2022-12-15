@@ -18,12 +18,83 @@ void _add(stack_t **head, unsigned int linenumber)
 }
 
 /**
- * _nop - does nothing
+ * _sub - subtract the top element in the stack
+ * from the second top element
  * @head: address of head of the stack
  * @linenumber: line number of the opcode
 */
-void _nop(stack_t **head, unsigned int linenumber)
+void _sub(stack_t **head, unsigned int linenumber)
 {
-	(void)head;
-	(void)linenumber;
+	if (*head && (*head)->next)
+	{
+		((*head)->next)->n -= (*head)->n;
+		_pop(head, linenumber);
+		return;
+	}
+	fprintf(stderr, "L%u: can't sub, stack too short\n", linenumber);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * _mul - multiply the two top elements in stack
+ * @head: address of head of the stack
+ * @linenumber: line number of the opcode
+*/
+void _mul(stack_t **head, unsigned int linenumber)
+{
+	if (*head && (*head)->next)
+	{
+		((*head)->next)->n *= (*head)->n;
+		_pop(head, linenumber);
+		return;
+	}
+	fprintf(stderr, "L%u: can't sub, stack too short\n", linenumber);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * _div - divide the second top element
+ * in the stack by the top element
+ * @head: address of head of the stack
+ * @linenumber: line number of the opcode
+*/
+void _div(stack_t **head, unsigned int linenumber)
+{
+	if (*head && (*head)->next)
+	{
+		if ((*head)->n == 0)
+		{
+			fprintf(stderr, "L%u: division by zero\n", linenumber);
+			exit(EXIT_FAILURE);
+		}
+		((*head)->next)->n /= (*head)->n;
+		_pop(head, linenumber);
+		return;
+	}
+	fprintf(stderr, "L%u: can't sub, stack too short\n", linenumber);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * _mod - find the remainder of dividing
+ * the second top element in the stack
+ * by the top element
+ * @head: address of head of the stack
+ * @linenumber: line number of the opcode
+*/
+void _mod(stack_t **head, unsigned int linenumber)
+{
+	if (*head && (*head)->next)
+	{
+		if ((*head)->n == 0)
+		{
+			fprintf(stderr, "L%u: division by zero\n", linenumber);
+			exit(EXIT_FAILURE);
+		}
+		((*head)->next)->n %= (*head)->n;
+		_pop(head, linenumber);
+		return;
+	}
+	fprintf(stderr, "L%u: can't sub, stack too short\n", linenumber);
+	exit(EXIT_FAILURE);
 }
