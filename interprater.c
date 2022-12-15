@@ -40,6 +40,7 @@ void interprater(char *filename)
 void interprate(char *line, stack_t **stack, unsigned int linenumber)
 {
 	char *optcode;
+
 	optcode = strtok(line, " \t\n");
 	if (optcode)
 	{

@@ -86,14 +86,3 @@ void _swap(stack_t **head, unsigned int linenumber)
 	(*head)->n = ((*head)->next)->n;
 	((*head)->next)->n = tmp;
 }
-
-/**
- * _nop - does nothing
- * @head: address of head of the stack
- * @linenumber: line number of the opcode
-*/
-void _nop(stack_t **head, unsigned int linenumber)
-{
-	(void)head;
-	(void)linenumber;
-}

@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _pall - print the ascii char equivalent of the 
+ * _pchar - print the ascii char equivalent of the
  * top element in stack
  * @head: address of head of the stack
  * @linenumber: line number of the opcode
@@ -26,4 +26,15 @@ void _pchar(stack_t **head, unsigned int linenumber)
 	}
 	fprintf(stderr, "L%u: can't pchar, stack empty", linenumber);
 	exit(EXIT_FAILURE);
+}
+
+/**
+ * _nop - does nothing
+ * @head: address of head of the stack
+ * @linenumber: line number of the opcode
+*/
+void _nop(stack_t **head, unsigned int linenumber)
+{
+	(void)head;
+	(void)linenumber;
 }
