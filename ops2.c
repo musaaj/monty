@@ -48,7 +48,7 @@ void _mul(stack_t **head, unsigned int linenumber)
 		_pop(head, linenumber);
 		return;
 	}
-	fprintf(stderr, "L%u: can't sub, stack too short\n", linenumber);
+	fprintf(stderr, "L%u: can't mul, stack too short\n", linenumber);
 	exit(EXIT_FAILURE);
 }
 
@@ -71,7 +71,7 @@ void _div(stack_t **head, unsigned int linenumber)
 		_pop(head, linenumber);
 		return;
 	}
-	fprintf(stderr, "L%u: can't sub, stack too short\n", linenumber);
+	fprintf(stderr, "L%u: can't div, stack too short\n", linenumber);
 	exit(EXIT_FAILURE);
 }
 
@@ -95,6 +95,6 @@ void _mod(stack_t **head, unsigned int linenumber)
 		_pop(head, linenumber);
 		return;
 	}
-	fprintf(stderr, "L%u: can't sub, stack too short\n", linenumber);
+	fprintf(stderr, "L%u: can't mod, stack too short\n", linenumber);
 	exit(EXIT_FAILURE);
 }
