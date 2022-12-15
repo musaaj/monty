@@ -78,6 +78,7 @@ void _init_(void)
 
 	set_ins("push", &_push, idx++);
 	set_ins("pall", &_pall, idx++);
+	set_ins("pint", &_pint, idx++);
 	op[idx] = NULL;
 }
 

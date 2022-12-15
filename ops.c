@@ -37,3 +37,18 @@ void _pall(stack_t **head, unsigned int linenumber)
 	print_stack_all(*head);
 	(void)linenumber;
 }
+
+/**
+ * _pint - print the top element in stack
+ * @head: address of head of the stack
+ * @linenumber: line number of the opcode
+*/
+void _pint(stack_t **head, unsigned int linenumber)
+{
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty", linenumber);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*head)->n);
+}
