@@ -4,3 +4,5 @@ push 30
 add
 add
 pint
+pop
+add

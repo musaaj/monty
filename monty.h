@@ -59,7 +59,7 @@ stack_t *get_stack_by_index(stack_t *head, unsigned int index);
 /*instructions functions*/
 void _push(stack_t **head, unsigned int linenumber);
 void _pall(stack_t **head, unsigned int linenumber);
-void _pint_(stack_t **head, unsigned int linenumber);
+void _pint(stack_t **head, unsigned int linenumber);
 void _pop(stack_t **head, unsigned int linenumber);
 void _swap(stack_t **head, unsigned int linenumber);
 void _add(stack_t **head, unsigned int linenumber);

@@ -43,7 +43,7 @@ void _pall(stack_t **head, unsigned int linenumber)
  * @head: address of head of the stack
  * @linenumber: line number of the opcode
 */
-void _pint_(stack_t **head, unsigned int linenumber)
+void _pint(stack_t **head, unsigned int linenumber)
 {
 	if (*head == NULL)
 	{
@@ -69,7 +69,7 @@ void _pop(stack_t **head, unsigned int linenumber)
 }
 
 /**
- * _pop - swap the two top elements in stack
+ * _swap - swap the two top elements in stack
  * @head: address of head of the stack
  * @linenumber: line number of the opcode
 */
