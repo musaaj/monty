@@ -63,4 +63,5 @@ void _pint(stack_t **head, unsigned int linenumber);
 void _pop(stack_t **head, unsigned int linenumber);
 void _swap(stack_t **head, unsigned int linenumber);
 void _add(stack_t **head, unsigned int linenumber);
+void _nop(stack_t **head, unsigned int linenumber);
 #endif

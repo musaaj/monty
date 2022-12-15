@@ -82,6 +82,7 @@ void _init_(void)
 	set_ins("pop", &_pop, idx++);
 	set_ins("swap", &_swap, idx++);
 	set_ins("add", &_add, idx++);
+	set_ins("nop", &_nop, idx++);
 	op[idx] = NULL;
 }
 
