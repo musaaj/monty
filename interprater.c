@@ -21,7 +21,8 @@ void interprater(char *filename)
 	line = freadln(fp);
 	while (line)
 	{
-		interprate(line, &stack, linenumber);
+		if (line[0] != '#')
+			interprate(line, &stack, linenumber);
 		free(line);
 		line = freadln(fp);
 		linenumber++;
@@ -39,7 +40,6 @@ void interprater(char *filename)
 void interprate(char *line, stack_t **stack, unsigned int linenumber)
 {
 	char *optcode;
-
 	optcode = strtok(line, " \t\n");
 	if (optcode)
 	{
@@ -87,6 +87,7 @@ void _init_(void)
 	set_ins("mul", &_mul, idx++);
 	set_ins("div", &_div, idx++);
 	set_ins("mod", &_mod, idx++);
+	set_ins("pchar", &_pchar, idx++);
 	op[idx] = NULL;
 }
 
