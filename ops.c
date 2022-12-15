@@ -22,7 +22,7 @@ void _push(stack_t **head, unsigned int linenumber)
 	s = push_stack(head, arg);
 	if (!s)
 	{
-		fprintf(stderr, "Error: can't malloc\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -43,7 +43,7 @@ void _pall(stack_t **head, unsigned int linenumber)
  * @head: address of head of the stack
  * @linenumber: line number of the opcode
 */
-void _pint(stack_t **head, unsigned int linenumber)
+void _pint_(stack_t **head, unsigned int linenumber)
 {
 	if (*head == NULL)
 	{
@@ -66,4 +66,23 @@ void _pop(stack_t **head, unsigned int linenumber)
 		exit(EXIT_FAILURE);
 	}
 	delete_stack(head, 0);
+}
+
+/**
+ * _pop - swap the two top elements in stack
+ * @head: address of head of the stack
+ * @linenumber: line number of the opcode
+*/
+void _swap(stack_t **head, unsigned int linenumber)
+{
+	int tmp;
+
+	if (!(*head) || !(*head)->next)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", linenumber);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*head)->n;
+	(*head)->n = ((*head)->next)->n;
+	((*head)->next)->n = tmp;
 }

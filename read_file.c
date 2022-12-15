@@ -22,5 +22,8 @@ char *freadln(FILE *fp)
 		buffer[i++] = c;
 		c = fgetc(fp);
 	}
+	buffer[i] = '\0';
+	if (strlen(buffer))
+		return (strdup(buffer));
 	return (NULL);
 }

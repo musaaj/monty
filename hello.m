@@ -1,14 +1,6 @@
-push 8
-push 1
-push 2
-push 3
+push 10
+push 20
+push 30
+add
+add
 pint
-pop
-pint
-pop
-pint
-pop
-pint
-pop
-pop
-pop

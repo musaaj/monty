@@ -40,7 +40,7 @@ void interprate(char *line, stack_t **stack, unsigned int linenumber)
 {
 	char *optcode;
 
-	optcode = strtok(line, " \t\n\r");
+	optcode = strtok(line, " \t\n");
 	if (optcode)
 	{
 		_execute(optcode, stack, linenumber);
@@ -78,8 +78,10 @@ void _init_(void)
 
 	set_ins("push", &_push, idx++);
 	set_ins("pall", &_pall, idx++);
-	set_ins("pint", &_pint, idx++);
+	set_ins("pint", &_pint_, idx++);
 	set_ins("pop", &_pop, idx++);
+	set_ins("swap", &_swap, idx++);
+	set_ins("add", &_add, idx++);
 	op[idx] = NULL;
 }
 
