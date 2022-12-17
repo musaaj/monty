@@ -1,7 +1,3 @@
-push  9
-
-push 9
-
-
-
-g
+push 1
+push -1
+pint

@@ -13,6 +13,8 @@ unsigned int isnumber(char *s)
 	i = 0;
 	if (!s)
 		return (0);
+	if (s[i] == '-')
+		i++;
 	while (s[i])
 	{
 		if (!isdigit(s[i]))
