@@ -15,14 +15,14 @@ void interprater(char *filename)
 	fp = fopen(filename, "r");
 	if (!fp)
 	{
-		fprintf(stderr, "Error: Cant't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		free_mem(stack);
 		exit(EXIT_FAILURE);
 	}
 	freadln(fp, line);
-	while (strlen(line))
+	while (1)
 	{
-		if (line[0] != '#')
+		if (line[0] != '#' || strlen(line) > 0)
 			interprate(line, &stack, linenumber);
 		freadln(fp, line);
 		linenumber++;
