@@ -3,13 +3,13 @@
 /**
  * freadln - read one line from a file pointer
  * @fp: file pointer to read from
+ * @buffer: char array to read to
  * Return: a line of null terminated string
  * on error return NULL
  */
-char *freadln(FILE *fp)
+char *freadln(FILE *fp, char buffer[])
 {
 	int i = 0, c;
-	char buffer[BUF_SIZE];
 
 	c = fgetc(fp);
 	while (c != EOF)
@@ -17,13 +17,13 @@ char *freadln(FILE *fp)
 		if (c == '\n')
 		{
 			buffer[i] = '\0';
-			return  (strdup(buffer));
+			return  (buffer);
 		}
 		buffer[i++] = c;
 		c = fgetc(fp);
 	}
 	buffer[i] = '\0';
 	if (strlen(buffer))
-		return (strdup(buffer));
-	return (NULL);
+		return (buffer);
+	return ("");
 }

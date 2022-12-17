@@ -18,6 +18,7 @@ stack_t *push_stack(stack_t **head, int n)
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_mem(*head);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = n;

@@ -7,7 +7,7 @@ instruction_t *op[200];
 */
 void interprater(char *filename)
 {
-	char *line;
+	char line[BUF_SIZE];
 	FILE *fp;
 	unsigned int linenumber = 1;
 	stack_t *stack = NULL;
@@ -16,19 +16,19 @@ void interprater(char *filename)
 	if (!fp)
 	{
 		fprintf(stderr, "Error: Cant't open file %s\n", filename);
+		free_mem(stack);
 		exit(EXIT_FAILURE);
 	}
-	line = freadln(fp);
-	while (line)
+	freadln(fp, line);
+	while (strlen(line))
 	{
 		if (line[0] != '#')
 			interprate(line, &stack, linenumber);
-		free(line);
-		line = freadln(fp);
+		freadln(fp, line);
 		linenumber++;
 	}
 	fclose(fp);
-	free_stack(stack);
+	free_mem(stack);
 }
 
 /**
@@ -63,6 +63,7 @@ unsigned int idx)
 	if (!ins)
 	{
 		fprintf(stderr, "Error: cant't malloc\n");
+		free_ins(op);
 		exit(EXIT_FAILURE);
 	}
 	ins->f = f;
@@ -111,6 +112,7 @@ void _execute(char *opcode, stack_t **s, unsigned int linenumber)
 		}
 		i++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", linenumber, opcode);
+	fprintf(stderr, "L%u: unknown instruction %s\n", linenumber, opcode);
+	free_mem(*s);
 	exit(EXIT_FAILURE);
 }

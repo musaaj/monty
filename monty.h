@@ -37,7 +37,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-char *freadln(FILE *);
+char *freadln(FILE *, char buffer[]);
 void interprate(char *line, stack_t **, unsigned int line_number);
 void interprater(char *filename);
 void set_ins(char *opcode, void (*f)(stack_t **, unsigned int), unsigned int idx);
@@ -46,6 +46,9 @@ void _execute(char *opcode, stack_t **s, unsigned int linenumber);
 
 /*Util functions*/
 unsigned int isnumber(char *s);
+void free_ins(instruction_t *ops[]);
+void cleanup(const char *msg, stack_t *s, unsigned int lnnumber);
+void free_mem(stack_t *s);
 
 /*stack functions*/
 stack_t *push_stack(stack_t **head, int n);
@@ -69,4 +72,6 @@ void _div(stack_t **head, unsigned int linenumber);
 void _mod(stack_t **head, unsigned int linenumber);
 void _mul(stack_t **head, unsigned int linenumber);
 void _pchar(stack_t **head, unsigned int linenumber);
+
+extern instruction_t *op[200];
 #endif
