@@ -20,9 +20,9 @@ void interprater(char *filename)
 		exit(EXIT_FAILURE);
 	}
 	freadln(fp, line);
-	while (1)
+	while (strlen(line))
 	{
-		if (line[0] != '#' || strlen(line) > 0)
+		if (line[0] != '#')
 			interprate(line, &stack, linenumber);
 		freadln(fp, line);
 		linenumber++;
